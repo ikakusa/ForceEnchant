@@ -3,6 +3,7 @@
 
 //Hooks
 #include "CommandHook/CommandHook.h"
+#include "ItemEnchants/ItemEnchants.h"
 //
 class Hook;
 class HookManager {

@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="Force\Hooks\ItemEnchants\ItemEnchants.h" />
+    <ClInclude Include="Force\SDK\EnchantResult.h" />
     <ClInclude Include="Libraries\Libraries.h" />
     <ClInclude Include="Libraries\Libs\Json.hpp" />
     <ClInclude Include="Libraries\Libs\libhat.hpp" />
@@ -190,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Force\Hooks\ItemEnchants\ItemEnchants.cpp" />
     <ClCompile Include="Libraries\Libs\MinHook\buffer.cpp" />
     <ClCompile Include="Libraries\Libs\MinHook\hde\hde32.c" />
     <ClCompile Include="Libraries\Libs\MinHook\hde\hde64.c" />
