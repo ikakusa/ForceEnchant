@@ -1,5 +1,5 @@
 # Force Enchant
-### Extension to remove the limit on the level of enchantment of an item written in c++
+### Extension to remove the limit on the level of enchantment of an item for minecraft bedrock edition written in c++
 
 # How to use
 
