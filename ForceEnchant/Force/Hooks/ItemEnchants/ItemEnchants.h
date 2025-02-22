@@ -9,7 +9,7 @@ namespace ItemEnchantsHook {
 		static inline std::unique_ptr<FuncHook> funcPtr;
 	public:
 		canEnchant() : Hook("ItemEnchants::canEnchant") {};
-		static EnchantResult* handle(__int64 _this, EnchantResult* result, __int64 en, bool allowNonVanilla);
+		static EnchantResult* handle(__int64 _this, EnchantResult* result, EnchantMentInstance* en, bool allowNonVanilla);
 		bool Initialize() override {
 			uintptr_t address = SigScan("4C 89 44 24 ?? 53 55 57 41");
 			return CreateHook(funcPtr, address, handle);

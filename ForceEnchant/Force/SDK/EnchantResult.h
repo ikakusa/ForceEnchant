@@ -4,6 +4,7 @@
 class EnchantMentInstance {
 public:
 	BUILD_ACCESS(int, enchantType, 0x0);
+	BUILD_ACCESS(int, level, 0x4);
 };
 
 class EnchantResult {
