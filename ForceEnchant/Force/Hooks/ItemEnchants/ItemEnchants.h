@@ -11,7 +11,7 @@ namespace ItemEnchantsHook {
 		canEnchant() : Hook("ItemEnchants::canEnchant") {};
 		static EnchantResult* handle(__int64 _this, EnchantResult* result, EnchantMentInstance* en, bool allowNonVanilla);
 		bool Initialize() override {
-			uintptr_t address = SigScan("4C 89 44 24 ?? 53 55 57 41");
+			uintptr_t address = SigScan("4C 89 44 24 18 53 55 57 41 54");
 			return CreateHook(funcPtr, address, handle);
 		}
 	};
