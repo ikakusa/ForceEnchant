@@ -3,6 +3,8 @@
 #include "../Hooks.h"
 #include "../../SDK/EnchantResult.h"
 
+//EnchantCommand::execute‚Ìstring failedNames‚Ì­‚µã‚É‚ ‚è‚Ü‚·
+//ŠÖ”‚Ì’†‚Écase•¶‚¢‚Á‚Ï‚¢‚ ‚è‚Ü‚·
 namespace ItemEnchantsHook {
 	class canEnchant : public Hook {
 	private:
