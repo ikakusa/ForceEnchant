@@ -18,3 +18,17 @@ namespace ItemEnchantsHook {
 		}
 	};
 }
+
+namespace EnchantUtilsHook {
+	class applyEnchant : public Hook {
+	private:
+		static inline std::unique_ptr<FuncHook> funcPtr;
+	public:
+		applyEnchant() : Hook("EnchantUtils::applyEnchant") {};
+		static bool handle(__int64 itemStackBase, unsigned char type, int level, bool allowNonVanilla);
+		bool Initialize() override {
+			uintptr_t address = SigScan("48 89 5C 24 10 57 48 81 EC 90 00 00 00 48 8B 05 ?? ?? ?? ?? 48 33 C4 48 89 84 24 80 00 00 00 41");
+			return CreateHook(funcPtr, address, handle);
+		}
+	};
+}
