@@ -13,7 +13,7 @@ namespace CommandHook {
 		ValidRange() : Hook("Command::ValidRange") {};
 		static bool handle(int input, int low, int high, __int64 out);
 		bool Initialize() override {
-			uintptr_t address = SigScan("48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 48 8D 6C 24 A9 48 81 EC A0 00 00 00 49"); //26.10
+			uintptr_t address = SigScan("55 56 57 48 81 EC C0 00 00 00 48 8D AC 24 80 00 00 00 48 C7 45 38 FE FF FF FF 4C 89 CE 89"); //26.20
 			return CreateHook(funcPtr, address, handle);
 		}
 	};
