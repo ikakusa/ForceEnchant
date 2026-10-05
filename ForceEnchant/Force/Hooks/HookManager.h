@@ -11,7 +11,5 @@ private:
 	static inline std::vector<Hook*> hooks;
 public:
 	static void initHooks();
-	static void DeleteHooks() {
-		hooks.clear();
-	}
+	static void DeleteHooks();
 };
