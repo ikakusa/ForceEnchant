@@ -8,8 +8,16 @@
 class Hook;
 class HookManager {
 private:
-	static inline std::vector<Hook*> hooks;
+	std::vector<Hook*> hooks;
 public:
+	HookManager() {};
+	~HookManager() {
+		DeleteHooks();
+	}
+	static HookManager* getInstance() {
+		static HookManager instance;
+		return &instance;
+	}
 	static void initHooks();
 	static void DeleteHooks();
 };
