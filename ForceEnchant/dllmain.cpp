@@ -4,7 +4,6 @@
 #include <cassert>
 
 DWORD WINAPI init(LPVOID lpParam) {
-
     MH_Initialize();
     HookManager::initHooks();
     return 1;

@@ -13,13 +13,13 @@ goto文でresultにConflictのid(1)を入れています
 static uintptr_t isCompatible_addr = SigScan("0F 84 8C 00 00 00 49 FF C7"); //ItemEnchants::canEnchantの中のif文のjmp命令
 void HookManager::initHooks() {
 	auto& hooks = getInstance().hooks;
-	hooks.push_back(new CommandHook::ValidRange());
-	hooks.push_back(new ItemEnchantsHook::canEnchant());
+	hooks.push_back(std::make_unique<CommandHook::ValidRange>());
+	hooks.push_back(std::make_unique<ItemEnchantsHook::canEnchant>());
 
 	copyBytes((void*)isCompatible_addr, (void*)origBytes_canEnchant_isCompatible, 6);
 	nopBytes((void*)isCompatible_addr, 6);
 
-	for (auto hook : hooks) {
+	for (auto& hook : hooks) {
 		hook->Initialize();
 		MH_EnableHook(MH_ALL_HOOKS);
 	}
@@ -27,5 +27,8 @@ void HookManager::initHooks() {
 
 void HookManager::DeleteHooks() {
 	patchBytes((void*)isCompatible_addr, (void*)origBytes_canEnchant_isCompatible, 6);
+	for (auto& hook : getInstance().hooks) {
+		MH_DisableHook(MH_ALL_HOOKS);
+	}
 	getInstance().hooks.clear();
 }

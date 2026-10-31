@@ -8,7 +8,7 @@
 class Hook;
 class HookManager {
 private:
-	std::vector<Hook*> hooks;
+	std::vector<std::unique_ptr<Hook>> hooks;
 	HookManager() {};
 public:
 	HookManager(const HookManager&) = delete;
